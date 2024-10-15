@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+// 루트 경로 처리
+router.get('/', (req, res) => {
+  res.send(`
+    <h1>🎬 SparkSpot에 오신 것을 환영합니다!</h1>
+    <p><a href="/movies/popular">인기 영화 보기</a></p>
+  `);
 });
 
 module.exports = router;

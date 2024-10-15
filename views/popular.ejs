@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인기 영화 - SparkSpot</title>
+
+  <!-- CSS 경로 수정 -->
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+<body>
+  <header>
+    <h1>🎬 SparkSpot - 인기 영화 목록</h1>
+  </header>
+
+  <main class="movie-grid">
+    <% if (movies && movies.length > 0) { %>
+      <% movies.forEach(movie => { %>
+        <div class="movie-card">
+          <img
+            src="https://image.tmdb.org/t/p/w500<%= movie.poster_path %>"
+            alt="<%= movie.title %> 포스터"
+          />
+          <div class="movie-info">
+            <h2><%= movie.title %></h2>
+            <p>📅 개봉일: <%= movie.release_date %></p>
+            <p><%= movie.overview.substring(0, 100) %>...</p>
+          </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>영화 데이터를 불러올 수 없습니다. 😔</p>
+    <% } %>
+  </main>
+</body>
+</html>
